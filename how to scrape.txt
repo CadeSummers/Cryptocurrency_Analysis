@@ -1,0 +1,2 @@
+Find the kind of element you are looking for, identify it's class on the html webpage and then loop through and seek out the same class as the initial object
+variable = page_soup.findAll("div", {"class:"item-container"})
