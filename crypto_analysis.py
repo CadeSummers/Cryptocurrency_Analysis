@@ -2,45 +2,14 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen
 
 ###Project Start: 6/14/21
-###Project Last Updated: 6/21/21
+###Project Last Updated: 6/24/21
+
+###Ultimate Goal: analyze whether negative language in news/media headlines has significant correlation with price change of cryptocurrency
+    #Sub Goal: analyze if the change is positive or negative correlation, or just either (absolute value of change)
+    #Sub Goal: analyze which currencies are more or less effected. In effect, which coin has the most "hype"
+###This file contains data which grabs cryptocurrency information
 
 ####### Functions #######
-
-#TODO this function does not work properly, but the for loop below does -- figure out why
-#parsing top ten cryptocurrencies and other crypto currencies slightly different per website design -- This function grabs the top ten cryptocurrencies and their prices more easily. Similar to body of main.
-def grab_top_ten():
-
-    names2 = []
-    prices2 = []
-
-    #for loop iterating through all elements of toptendata
-    for element in toptendata:
-
-        #convert element of type bs4 tag, to string
-        element = str(element)
-
-        #the index of the string which contains the name variable occurs following the "/currencies/" text in the html of the website
-        name_start = element.find("/currencies/")
-
-        #the index of the end of the string follows this piece of text: ""><div class=\"sc-16r8icm-0\"
-        name_end = element.find("/markets/")
-
-        #find the dollar sign value
-        price_start = element.find("$")
-
-        #find the decimal (cents) value and add 3 to account for the cents value we want to grab
-        price_end = element.find(".") + 3
-        names2.append(element[name_start:name_end])
-        prices2.append(element[price_start:price_end])
-
-        if len(names2) == len(prices2):
-            top_ten_key_info = zip(names2, prices2)
-
-        for item in top_ten_key_info:
-            item[0].strip("/currencies")
-            print(item)
-        
-        return top_ten_key_info
 
 
 ####### Globals & Initialization #######
@@ -66,66 +35,51 @@ prices = []
 #for loop iterating through all elements of data
 for element in data:
 
-    #convert element of type bs4 tag, to string
-    element = str(element)
+    #grab name, which is inside of the class cmc-link in our url
+    name = element.find("a", class_="cmc-link")
 
-    #the index of the string which contains the name variable occurs following the "/currencies/" text in the html of the website
-    name_start = element.find("/currencies/")
+    #TODO filter names information (long strip of bs4 tag information) into just currency name
 
-    #the index of the end of the string follows this piece of text: ""><div class=\"sc-16r8icm-0\"
-    name_end = element.find("><div class=\"sc-16r8icm-0\"")
+    print(name)
 
-    #find the dollar sign value
-    price_start = element.find("$")
+    # append name to names
+    names.append(name)
 
-    #find the decimal (cents) value and add 3 to account for the cents value we want to grab
-    price_end = element.find(".") + 3
-    names.append(element[name_start:name_end])
-    prices.append(element[price_start:price_end])
+    #converting element to string-form of html, as it's easier to parse for the price
+    element = element.prettify()
 
-if len(names) == len(prices):
-    key_info = zip(names, prices)
+    #this comment starts the price (if this doesn't work try adding '$\n')
+    price_start = element.find("<!-- -->")
 
-for item in key_info:
-    item[0].strip("/currencies")
-    #print(item)
+    #cut down on the string such that it only contains information after the found start index
+    element = element[price_start:]
+    
+    #find the immediate next decimal place, representative of the numbers decimal place
+    price_end = element.find(".")
 
+    #add the index of the decimal point (plus 3) to account for cents value
+    price_end = price_end + 3
 
-######## TOP TEN DATA GRAB ########
+    #the price is the remaining string between the initial index of the html comment '<!-- -->' 
+    price = element[:price_end]
 
+    #remove excess information (html comments and excess spaces)
+    price = price.replace("<!-- -->", "").strip()
 
-#grabs the data for the top ten cryptocurrencies
-toptendata = soup.find_all("div", {"class" : "price___3rj7O"})
+    #append price to list prices
+    prices.append(price)
 
-names2 = []
-prices2 = []
+    #TODO? Should I also include the symbol of each of these currencies?
 
-#for loop iterating through all elements of toptendata
-for element in toptendata:
+    
+print(len(names))
+print(len(prices))
+#print(names[1])
+#print(names[-1])
 
-    #convert element of type bs4 tag, to string
-    element = str(element)
+#TODO most prices are here as numeric strings, but some still contain vast amounts of html. Top ten seem to have different logic, which is handled in toptendatagrab.py
+print(prices)
 
-    #the index of the string which contains the name variable occurs following the "/currencies/" text in the html of the website
-    name_start = element.find("/currencies/")
-
-    #the index of the end of the string follows this piece of text: ""><div class=\"sc-16r8icm-0\"
-    name_end = element.find("/markets/")
-
-    #find the dollar sign value
-    price_start = element.find("$")
-
-    #find the decimal (cents) value and add 3 to account for the cents value we want to grab
-    price_end = element.find(".") + 3
-    names2.append(element[name_start:name_end])
-    prices2.append(element[price_start:price_end])
-
-if len(names2) == len(prices2):
-    top_ten_key_info = zip(names2, prices2)
-
-for item in top_ten_key_info:
-    item[0].strip("/currencies")
-    print(item)
-
+#TODO convert prices to floats
 
 
