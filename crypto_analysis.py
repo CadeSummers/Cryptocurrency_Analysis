@@ -25,7 +25,7 @@ text = soup.prettify()
 
 ######## TOTAL DATA GRAB ########
 
-#grabs table row data from coinmarketcap.com and saves to variable named data
+#grabs html tag <tr> (table row) data from coinmarketcap.com and saves to variable named data
 data = soup.find_all("tr")
 
 #initialization of two lists to store the price and name of each cryptocurrency
@@ -37,10 +37,6 @@ for element in data:
 
     #grab name, which is inside of the class cmc-link in our url
     name = element.find("a", class_="cmc-link")
-
-    #TODO filter names information (long strip of bs4 tag information) into just currency name
-
-    print(name)
 
     # append name to names
     names.append(name)
@@ -69,17 +65,93 @@ for element in data:
     #append price to list prices
     prices.append(price)
 
-    #TODO? Should I also include the symbol of each of these currencies?
+#removes top ten prices
+topten = prices[:11]
 
+#stores all other prices in this
+prices = prices[11:]
+
+#remainder prices: I am keeping this for the time being in case it's needed or desired to be parsed later, but most likely this is a...
+#TODO discard this extra information after determining usefulness
+#print(topten)
+
+#convert list of prices to floats
+for i in range(len(prices)):
+    prices[i] = float(prices[i])
+
+#initialization of two lists to store links (which contains name of currency)
+currencies = []
+symbols = []
+
+#remove first element of list, which is void. Remaining list contains only elements of class bs4.element.Tag
+names.pop(0)
+
+#parse throught the list of names to get the coin name and the symbol
+for i in range(len(names)):
     
-print(len(names))
-print(len(prices))
-#print(names[1])
-#print(names[-1])
+    #find the span with class crypto symbol, save it to symbol, and append the list symbols with its' value
+    symbol = names[i].find("span", class_="crypto-symbol")
+    symbols.append(symbol)
 
-#TODO most prices are here as numeric strings, but some still contain vast amounts of html. Top ten seem to have different logic, which is handled in toptendatagrab.py
-print(prices)
+    #find all span tags in this particular element of the list
+    spans = names[i].find_all("span")
 
-#TODO convert prices to floats
+    #if spans is an empty list (in this case, follows divergent website logic from other core groups), continue to next iteration and save the indices where there is an empty list
+    if spans == []:
+        continue
+    else:
+        #otherwise, append the list of currences with the middle element of spans, which happens to contain the name
+        currencies.append(spans[1])
 
+#split symbols list into list containing top ten data, and the other 90    
+top_ten_symbols = symbols[:10]
+symbols = symbols[10:]
 
+#adjusts names of cryptocurrencies
+coin_names = []
+for coin in currencies:
+    
+    #convert coin to type string
+    coin = str(coin)
+
+    #find string indeces of span tags
+    span_start = coin.find("<span>")
+    span_end = coin.find("</span>")
+
+    #cut string to be just key information
+    coin_name = coin[span_start:span_end]
+    
+    #append to coin_names the coin name excluding "<span>"
+    coin_names.append(coin_name[len("<span>"):])
+
+#initialization of a list called coin symbols to store just thes coin symbol
+coin_symbols = []
+
+#for every index of symbols
+#this method can be done without being a numeric index of the list symbols by just iterating
+for coin_symbol in symbols:
+
+    #cast to string
+    coin_symbol = str(coin_symbol)
+
+    #find the indices of the start and end of the symbol
+    span_start = coin_symbol.find("<span class=\"crypto-symbol\">")
+    span_end = coin_symbol.find("</span>")
+    
+    #remove all unnesscary info
+    coin_symbol = coin_symbol[span_start:span_end]
+    coin_symbol = coin_symbol[len("<span class=\"crypto-symbol\">"):]
+
+    #append the element to coin_symbols
+    coin_symbols.append(coin_symbol)
+
+#initialize dict of coins
+coin_dict = {}
+
+#coin_names should be len 90, same as symbols and prices
+for i in range(len(coin_names)):
+
+    #insert into coin dictionary the name of each coin, it's rank (index i) and the associated price and symbol
+    coin_dict[coin_names[i]] = {"rank": i + 11, "price" : prices[i], "symbol": coin_symbols[i]}
+
+print(coin_dict)
