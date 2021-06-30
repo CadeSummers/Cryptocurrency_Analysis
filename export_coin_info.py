@@ -15,7 +15,7 @@ coin_values = coin_info.values()
 # for value in coin_values:
 #     print(value)
 
-with open ("CryptoCurrencyInfo.csv", mode="w") as csv_file:
+with open ("CryptoCurrencyInfo.csv", mode="w", newline="") as csv_file:
     fieldnames = ["name", "rank", "price", "symbol"]
     dwriter = csv.DictWriter(csv_file, fieldnames)
     dwriter.writeheader()
@@ -24,8 +24,20 @@ with open ("CryptoCurrencyInfo.csv", mode="w") as csv_file:
     # for coin in coin_info:
     #     writer.writerow({field: coin_info[coin].get(field) or coin for field in fieldnames})
 
-    for value in coin_values:
-        print("writing", str(value), " to csv file")
-        dwriter.writerow(value)
+    #TODO cast coin_names to dictionary that binds field "name" to values of coin names, zip with value in coin_values and writerow to file
+    #for all coins in coin_info
+    for coin in coin_info:
+
+        #grab the values of the coin info dict at the value of the string coin and store in values
+        values = coin_info[coin]
+
+        #initialize a new dictionary which binds the coin to a key named "name"
+        export_dict = {"name" : coin}
+
+        #update the dict with the remaining values
+        export_dict.update(values)
+        
+        print("writing", str(export_dict), " to csv file")
+        dwriter.writerow(export_dict)
 
 
