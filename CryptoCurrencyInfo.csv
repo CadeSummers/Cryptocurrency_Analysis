@@ -1,101 +1,101 @@
 name,rank,price,symbol
-Bitcoin,1,34748.07,BTC
-Ethereum,2,2187.41,ETH
+Bitcoin,1,33512.83,BTC
+Ethereum,2,2105.37,ETH
 Tether,3,1.0,USDT
-Binance Coin,4,291.25,BNB
-Cardano,5,1.35,ADA
-Dogecoin,6,0.25,DOGE
-Xrp,7,0.67,XRP
+Binance Coin,4,288.38,BNB
+Cardano,5,1.34,ADA
+Dogecoin,6,0.24,DOGE
+Xrp,7,0.65,XRP
 Usd Coin,8,1.0,USDC
-Polkadot,9,15.73,DOT
-Uniswap,10,17.95,UNI
+Polkadot,9,15.4,DOT
+Uniswap,10,17.9,UNI
 Binance USD,11,1.0,BUSD
-Bitcoin Cash,12,517.79,BCH
-Litecoin,13,140.47,LTC
-Solana,14,32.92,SOL
-Chainlink,15,18.97,LINK
-Polygon,16,1.12,MATIC
-Wrapped Bitcoin,17,34848.33,WBTC
-THETA,18,6.76,THETA
-Stellar,19,0.28,XLM
-Internet Computer,20,47.23,ICP
-Ethereum Classic,21,55.31,ETC
-VeChain,22,0.09,VET
+Bitcoin Cash,12,496.94,BCH
+Solana,13,34.12,SOL
+Litecoin,14,136.81,LTC
+Chainlink,15,18.15,LINK
+Polygon,16,1.1,MATIC
+Wrapped Bitcoin,17,33493.69,WBTC
+Internet Computer,18,46.53,ICP
+Ethereum Classic,19,54.15,ETC
+THETA,20,6.26,THETA
+Stellar,21,0.27,XLM
+VeChain,22,0.08,VET
 Dai,23,1.0,DAI
-Filecoin,24,59.03,FIL
-TRON,25,0.07,TRX
-Monero,26,217.78,XMR
-EOS,27,3.97,EOS
+Filecoin,24,56.85,FIL
+TRON,25,0.06,TRX
+Monero,26,209.62,XMR
+EOS,27,3.92,EOS
 SHIBA INU,28,0.0,SHIB
-Aave,29,230.55,AAVE
+Aave,29,234.6,AAVE
 Crypto.com Coin,30,0.11,CRO
-Bitcoin SV,31,143.48,BSV
-Algorand,32,0.86,ALGO
-Bitcoin BEP2,33,34704.94,BTCB
-Terra,34,6.06,LUNA
-Klaytn,35,1.01,KLAY
-FTX Token,36,26.61,FTT
-Cosmos,37,11.5,ATOM
-PancakeSwap,38,13.24,CAKE
-Neo,39,34.79,NEO
-Tezos,40,2.83,XTZ
-Amp,41,0.06,AMP
-Maker,42,2366.03,MKR
-UNUS SED LEO,43,2.43,LEO
-IOTA,44,0.82,MIOTA
-Theta Fuel,45,0.4,TFUEL
-Avalanche,46,11.35,AVAX
+Bitcoin SV,31,145.84,BSV
+Algorand,32,0.84,ALGO
+Maker,33,2528.95,MKR
+Terra,34,5.91,LUNA
+Klaytn,35,0.99,KLAY
+FTX Token,36,26.13,FTT
+Tezos,37,2.88,XTZ
+PancakeSwap,38,12.92,CAKE
+Bitcoin BEP2,39,33306.02,BTCB
+Neo,40,34.19,NEO
+Cosmos,41,11.04,ATOM
+Amp,42,0.06,AMP
+UNUS SED LEO,43,2.44,LEO
+IOTA,44,0.8,MIOTA
+Theta Fuel,45,0.38,TFUEL
+Avalanche,46,11.32,AVAX
 TerraUSD,47,1.0,UST
-Huobi Token,48,10.67,HT
-Decred,49,139.11,DCR
-Waves,50,16.85,WAVES
-BitTorrent,51,0.0,BTT
-Kusama,52,204.1,KSM
-The Graph,53,0.57,GRT
-Compound,54,300.77,COMP
-Hedera Hashgraph,55,0.18,HBAR
-Zcash,56,125.35,ZEC
-THORChain,57,6.48,RUNE
-TrueUSD,58,1.0,TUSD
-Celsius,59,6.15,CEL
-Elrond,60,81.95,EGLD
-Chiliz,61,0.24,CHZ
-Dash,62,139.5,DASH
+Hedera Hashgraph,48,0.21,HBAR
+Decred,49,139.59,DCR
+Compound,50,335.85,COMP
+Huobi Token,51,10.43,HT
+BitTorrent,52,0.0,BTT
+Kusama,53,202.65,KSM
+Waves,54,15.79,WAVES
+The Graph,55,0.54,GRT
+TrueUSD,56,1.0,TUSD
+Zcash,57,122.46,ZEC
+THORChain,58,6.33,RUNE
+Elrond,59,80.21,EGLD
+Chiliz,60,0.24,CHZ
+Celsius,61,5.88,CEL
+Dash,62,137.02,DASH
 Telcoin,63,0.03,TEL
-yearn.finance,64,32449.85,YFI
-NEM,65,0.12,XEM
-Helium,66,12.58,HNT
-Holo,67,0.01,HOT
-SushiSwap,68,7.6,SUSHI
+yearn.finance,64,32401.58,YFI
+NEM,65,0.13,XEM
+Helium,66,12.44,HNT
+XinFin Network,67,0.09,XDC
+Holo,68,0.01,HOT
 Zilliqa,69,0.08,ZIL
-Enjin Coin,70,1.08,ENJ
-XinFin Network,71,0.07,XDC
-Stacks,72,0.77,STX
-Basic Attention Token,73,0.58,BAT
-Bitcoin Gold,74,49.22,BTG
+Enjin Coin,70,1.12,ENJ
+SushiSwap,71,7.36,SUSHI
+Stacks,72,0.75,STX
+NEAR Protocol,73,2.09,NEAR
+Basic Attention Token,74,0.57,BAT
 Decentraland,75,0.54,MANA
-Quant,76,70.55,QNT
-Paxos Standard,77,1.0,PAX
-Mdex,78,1.62,MDX
-NEAR Protocol,79,2.0,NEAR
-Nexo,80,1.44,NEXO
-Synthetix,81,6.91,SNX
-Celo,82,3.05,CELO
-Horizen,83,64.54,ZEN
-Bancor,84,3.24,BNT
-Qtum,85,7.17,QTUM
+Paxos Standard,76,1.0,PAX
+Bitcoin Gold,77,47.75,BTG
+Mdex,78,1.64,MDX
+Quant,79,68.45,QNT
+Synthetix,80,6.85,SNX
+Celo,81,2.92,CELO
+Nexo,82,1.33,NEXO
+Horizen,83,63.43,ZEN
+Qtum,84,7.19,QTUM
+Bancor,85,3.17,BNT
 Revain,86,0.01,REV
-DigiByte,87,0.05,DGB
-Curve DAO Token,88,1.78,CRV
-Nano,89,5.02,NANO
-Harmony,90,0.06,ONE
-OKB,91,10.9,OKB
-Ontology,92,0.71,ONT
-UMA,93,9.78,UMA
-Siacoin,94,0.01,SC
-SwissBorg,95,0.59,CHSB
-OMG Network,96,4.19,OMG
-0x,97,0.69,ZRX
-KuCoin Token,98,7.2,KCS
-Fantom,99,0.23,FTM
-HUSD,100,1.0,HUSD
+Harmony,87,0.06,ONE
+DigiByte,88,0.04,DGB
+Curve DAO Token,89,1.7,CRV
+Nano,90,4.76,NANO
+OKB,91,10.3,OKB
+Siacoin,92,0.01,SC
+Ontology,93,0.7,ONT
+SwissBorg,94,0.58,CHSB
+0x,95,0.69,ZRX
+OMG Network,96,4.16,OMG
+Fantom,97,0.23,FTM
+UMA,98,9.23,UMA
+HUSD,99,1.0,HUSD
+KuCoin Token,100,6.98,KCS

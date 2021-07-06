@@ -21,8 +21,11 @@ def toptengdatagrab():
 
     ######## TOP TEN DATA GRAB ########
 
-    #grabs the data for the top ten cryptocurrencies
-    top_ten_data = soup.find_all("div", {"class" : "price___3rj7O"})
+    #grabs the data for the top ten cryptocurrencies 
+    #New class for top 10: sc-131di3y-0 cLgOOr
+    #top_ten_data = soup.find_all("div", {"class" : "price___3rj7O"})
+
+    top_ten_data = soup.find_all("div", {"class" : "sc-131di3y-0 cLgOOr"})
 
     names = []
     prices = []

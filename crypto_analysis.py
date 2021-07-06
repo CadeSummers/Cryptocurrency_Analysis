@@ -10,9 +10,3 @@ def get_coin_info():
     coindict.update(otherdict)
     return coindict
 
-# #main to test output
-# def main():
-#     coindict = merge()
-#     print(coindict)
-
-# main()

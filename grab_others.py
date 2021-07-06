@@ -2,18 +2,13 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen
 
 ###Project Start: 6/14/21
-###Project Last Updated: 6/24/21
-
-###Ultimate Goal: analyze whether negative language in news/media headlines has significant correlation with price change of cryptocurrency
-    #Sub Goal: analyze if the change is positive or negative correlation, or just either (absolute value of change)
-    #Sub Goal: analyze which currencies are more or less effected. In effect, which coin has the most "hype"
-###This file contains data which grabs cryptocurrency information
+###Project Last Updated: 6/28/21
 
 ####### Functions #######
 
 def grab_others():
 
-    ####### Globals & Initialization #######
+    ####### Initialization #######
 
 
     #initialization of the project, gaining info we need
