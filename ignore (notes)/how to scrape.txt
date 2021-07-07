@@ -1,7 +1,0 @@
-Find the kind of element you are looking for, identify it's class on the html webpage and then loop through and seek out the same class as the initial object
-variable = page_soup.findAll("div", {"class:"item-container"})
-
-###Ultimate Goal: analyze whether negative language in news/media headlines has significant correlation with price change of cryptocurrency
-    #Sub Goal: analyze if the change is positive or negative correlation, or just either (absolute value of change)
-    #Sub Goal: analyze which currencies are more or less effected. In effect, which coin has the most "hype"
-###This file contains data which grabs cryptocurrency information
