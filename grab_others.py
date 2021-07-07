@@ -10,14 +10,11 @@ def grab_others():
 
     ####### Initialization #######
 
-
     #initialization of the project, gaining info we need
     url = "https://coinmarketcap.com/"
     page = urlopen(url)
     html = page.read().decode("utf-8")
     soup = bs(html, "html.parser") #lxml or html.parser
-    text = soup.prettify()
-
 
     ######## TOTAL DATA GRAB ########
 
@@ -40,7 +37,7 @@ def grab_others():
         #converting element to string-form of html, as it's easier to parse for the price
         element = element.prettify()
 
-        #this comment starts the price (if this doesn't work try adding '$\n')
+        #this comment starts the price information in HTML 
         price_start = element.find("<!-- -->")
 
         #cut down on the string such that it only contains information after the found start index
@@ -61,11 +58,7 @@ def grab_others():
         #append price to list prices
         prices.append(price)
 
-    #removes top ten prices
-    #TODO remove hanging variables
-    topten = prices[:11]
-
-    #stores all other prices in this
+    #stores all other (90) prices in prices list. Index of 11, as the 0 index of prices is void
     prices = prices[11:]
 
     #remainder prices: I am keeping this for the time being in case it's needed or desired to be parsed later, but most likely this is a...
@@ -100,8 +93,7 @@ def grab_others():
             #otherwise, append the list of currences with the middle element of spans, which happens to contain the name
             currencies.append(spans[1])
 
-    #split symbols list into list containing top ten data, and the other 90    
-    top_ten_symbols = symbols[:10]
+    #split symbols list into list containing the other 90 (see top ten data grab for top ten)
     symbols = symbols[10:]
 
     #adjusts names of cryptocurrencies

@@ -12,7 +12,6 @@ def toptengdatagrab():
 
 ####### Initialization #######
 
-
     #initialization of the project, gaining info we need
     url = "https://coinmarketcap.com/"
     page = urlopen(url)
@@ -20,13 +19,15 @@ def toptengdatagrab():
     soup = bs(html, "html.parser") #lxml or html.parser
 
     ######## TOP TEN DATA GRAB ########
-
-    #grabs the data for the top ten cryptocurrencies 
+    
+    #previously, function to call was this class top_ten_data = soup.find_all("div", {"class" : "price___3rj7O"})
     #New class for top 10: sc-131di3y-0 cLgOOr
-    #top_ten_data = soup.find_all("div", {"class" : "price___3rj7O"})
 
+    #grabs the data for the top ten cryptocurrencies, who have special class to grab them compared to others
     top_ten_data = soup.find_all("div", {"class" : "sc-131di3y-0 cLgOOr"})
 
+
+    #initialization of lists
     names = []
     prices = []
 
@@ -71,7 +72,6 @@ def toptengdatagrab():
         coin_price = coin_price.replace(",","")
 
         #convert coin price to float and append to list prices
-
         prices.append(float(coin_price))
 
     #initialize new list to store updated names
@@ -82,7 +82,7 @@ def toptengdatagrab():
         #git rid of /currencies/ piece
         name = name[len("/currencies/"):]
 
-        #edge case for specificly updated information
+        #edge case for specificaly updated information per website standard (sometimes coinmarketcap names updated versions of cryptocurrences with -new)
         name = name.replace("-new", "")
         
         #replace dashes with space
